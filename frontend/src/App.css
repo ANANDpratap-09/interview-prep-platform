@@ -1,0 +1,10 @@
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.app {
+  min-height: 100vh;
+  background: #f5f7fb;
+  color: #1f2937;
+}

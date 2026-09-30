@@ -1,0 +1,14 @@
+# backend
+backend/target/
+backend/.idea/
+backend/*.iml
+backend/.mvn/
+
+# frontend
+frontend/node_modules/
+frontend/dist/
+
+# common
+.env
+*.log
+.DS_Store
