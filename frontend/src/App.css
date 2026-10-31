@@ -1,10 +1,35 @@
-#root {
-  width: 100%;
-  min-height: 100vh;
-}
+* { box-sizing: border-box; }
+body { margin: 0; font-family: system-ui, sans-serif; background: #f6f7f9; color: #1a1a1a; }
 
-.app {
-  min-height: 100vh;
-  background: #f5f7fb;
-  color: #1f2937;
-}
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; background: #1f2937; color: white; }
+.navbar a { color: white; text-decoration: none; margin-right: 1rem; }
+.navbar .nav-user { margin-right: 1rem; opacity: 0.8; }
+.navbar button { background: #374151; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; }
+
+.page { max-width: 900px; margin: 2rem auto; padding: 0 1rem; }
+.form-page { max-width: 400px; margin: 3rem auto; }
+.form-page form { display: flex; flex-direction: column; gap: 0.75rem; }
+.form-page input, .form-page button, .form-page select, .form-page textarea { padding: 0.6rem; border-radius: 4px; border: 1px solid #d1d5db; }
+.form-page button { background: #2563eb; color: white; border: none; cursor: pointer; }
+
+.error { color: #dc2626; }
+.info { color: #2563eb; }
+
+.course-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+.course-card { background: white; border-radius: 8px; padding: 1rem; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.course-card .tag { color: #6b7280; font-size: 0.85rem; }
+.card-actions { display: flex; justify-content: space-between; margin-top: 0.5rem; }
+.card-actions button { background: #2563eb; color: white; border: none; padding: 0.4rem 0.8rem; border-radius: 4px; cursor: pointer; }
+
+.module-block { margin-bottom: 1.5rem; }
+.lesson-row { display: flex; justify-content: space-between; align-items: center; padding: 0.5rem 0; border-bottom: 1px solid #e5e7eb; }
+
+.practice-start { display: flex; gap: 0.5rem; }
+.question-block { background: white; padding: 1.5rem; border-radius: 8px; margin-top: 1rem; }
+.option-row { display: block; margin: 0.4rem 0; }
+.result-block { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #e5e7eb; }
+.summary-block { background: white; padding: 1.5rem; border-radius: 8px; text-align: center; }
+
+.progress-row, .session-row { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: 0.4rem 0; }
+.progress-bar { flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; background: #2563eb; }

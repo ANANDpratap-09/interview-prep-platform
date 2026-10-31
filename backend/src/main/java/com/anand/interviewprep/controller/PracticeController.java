@@ -17,7 +17,7 @@ public class PracticeController {
     private final PracticeSessionService practiceSessionService;
 
     @PostMapping("/sessions")
-    public List<SessionQuestionResponse> start(@Valid @RequestBody StartSessionRequest request, Authentication auth) {
+    public StartSessionResponse start(@Valid @RequestBody StartSessionRequest request, Authentication auth) {
         return practiceSessionService.startSession(auth.getName(), request);
     }
 

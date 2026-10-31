@@ -22,7 +22,7 @@ public class PracticeSessionService {
     private final SessionAnswerRepository answerRepository;
     private final UserRepository userRepository;
 
-    public List<SessionQuestionResponse> startSession(String userEmail, StartSessionRequest request) {
+    public StartSessionResponse startSession(String userEmail, StartSessionRequest request) {
         User user = findUser(userEmail);
 
         List<Question> pool = request.getDifficulty() != null
@@ -58,9 +58,10 @@ public class PracticeSessionService {
             answerRepository.save(placeholder);
         }
 
-        return selected.stream()
+        List<SessionQuestionResponse> questionList = selected.stream()
                 .map(q -> new SessionQuestionResponse(q.getId(), q.getType(), q.getBody(), q.getOptions()))
                 .collect(Collectors.toList());
+        return new StartSessionResponse(session.getId(), questionList);
     }
 
     @Transactional

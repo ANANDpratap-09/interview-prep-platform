@@ -1,22 +1,33 @@
-function Navbar() {
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
+
+export default function Navbar() {
+    const { user, logout } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        logout();
+        navigate("/login");
+    };
+
     return (
         <nav className="navbar">
-            <div className="navbar-logo">
-                InterviewPrep
+            <Link to="/" className="brand">Interview Prep</Link>
+            <div className="nav-links">
+                {user ? (
+                    <>
+                        <Link to="/courses">Courses</Link>
+                        <Link to="/dashboard">Dashboard</Link>
+                        <span className="nav-user">{user.name}</span>
+                        <button onClick={handleLogout}>Logout</button>
+                    </>
+                ) : (
+                    <>
+                        <Link to="/login">Login</Link>
+                        <Link to="/register">Register</Link>
+                    </>
+                )}
             </div>
-
-            <div className="navbar-links">
-                <a href="/">Home</a>
-                <a href="/courses">Courses</a>
-                <a href="/practice">Practice</a>
-                <a href="/about">About</a>
-            </div>
-
-            <button className="login-button">
-                Login
-            </button>
         </nav>
     );
 }
-
-export default Navbar;
